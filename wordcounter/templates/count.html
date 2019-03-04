@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap-theme.min.css">
+
+<ul class="nav">
+    <li class="nav-item">
+        <a class="nav-link" href={% url 'home' %}>Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href={% url 'about' %}>About</a>
+    </li>
+</ul>
+<body>
+    <h1>There are {{ count }} words in your text</h1>
+    <a href="{% url 'home'%}" class="btn btn-primary btn-lg" role="button">Start Again</a>
+    <h2>Your Text:</h2>
+    {{ fulltext }}
+
+    <h2>Top Five Most Used Words:</h2>
+    {% for word, counttotal in worddictionary %}
+        <strong>{{ word }}</strong>: {{ counttotal }}
+        </br>
+    {% endfor %}
+</body>
